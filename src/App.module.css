@@ -1,10 +1,9 @@
 
 .App {
     font-family: "DM Sans", sans-serif;
-    background-color: #cfced3;
+    background-color: #fff;
     min-height: 100vh;
   }
-
   .Main {
     padding-top: 81px;
   }
@@ -14,7 +13,7 @@
   }
   
   a {
-    color: #cfced3;
+    color: black;
     transition: color ease-in-out 0.1s;
   }
   
@@ -39,3 +38,4 @@
     transition: color ease-in-out 0.1s;
     color: #2142b2;
   }
+  
