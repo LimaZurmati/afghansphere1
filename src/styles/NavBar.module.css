@@ -1,12 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
 .NavBar {
-  background-color: #ffffff;
-  border: 1px solid #dadadf;
+    background-color: #54d9ff;
+    font-family: 'Calistoga', cursive; 
+}
+
+.NavBar i {
+    color: #fff;
+    padding: 0px 6px 0px 6px;
+    vertical-align: middle;
+    font-size: 1.3rem;
+}
+
+.NavBar i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #54d9ff;
+}
+.NavBar a {
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+.NavBar a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.NavBar a:hover i {
+    color: #2d649b;
+}
+
+.NavBrand span {
+    padding-right: 0px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color:#fff;
+    vertical-align: middle;
+}
+.NavBrand i {
+    font-size: 1.5rem;
 }
 
 .NavLink {
-  padding: 5px;
+    color: #fff;
+    display: block;
+    padding: 0.6rem 0.70rem;
+    text-align: center;
 }
 
 .Active i {
-  color: #2142b2;
+    color: #2d649b;
 }
+
