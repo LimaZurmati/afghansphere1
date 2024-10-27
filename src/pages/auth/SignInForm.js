@@ -89,7 +89,7 @@ function SignInForm() {
               </Alert>
             ))}
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Gray}`}
               type="submit"
             >
               Sign in
@@ -113,7 +113,7 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/dwdurc38f/image/upload/v1729967716/360_F_867906207_thxxbzrJKIF1jTj1mQDAqCA0tdx6Jjg1_vgsoao.jpg"}
+          src={"https://res.cloudinary.com/dwdurc38f/image/upload/v1730056061/photo-1642917457648-de25f59aeaa7_uzcnc6.jpg"}
         />
       </Col>
     </Row>

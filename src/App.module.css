@@ -1,6 +1,6 @@
 .App {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f8f8f8;
+  background-color: rgb(225, 222, 222);
   min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
   background-color: #ffffff;
   padding: 10px;
   border-radius: 2px;
-  color: #54d9ff;
+  color: rgb(161, 159, 159);
   border: 1px solid ;
 }
 
