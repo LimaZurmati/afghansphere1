@@ -15,7 +15,7 @@
 .NavBar i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #54d9ff;
+    color: gray;
 }
 .NavBar a {
     text-decoration: none;
@@ -27,7 +27,7 @@
 }
 
 .NavBar a:hover i {
-    color: #2d649b;
+    color: gray;
 }
 
 .NavBrand span {
@@ -49,6 +49,6 @@
 }
 
 .Active i {
-    color: #2d649b;
+    color: gary;
 }
 
