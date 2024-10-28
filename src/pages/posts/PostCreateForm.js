@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
+
+import Asset from "../../components/Asset";
+
 import Upload from "../../assets/upload.png";
+
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
-import { Image } from "react-bootstrap";
+
+import { useHistory } from "react-router";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
+  const [errors, setErrors] = useState({});
+
   const [postData, setPostData] = useState({
     title: "",
     content: "",
@@ -19,7 +29,8 @@ function PostCreateForm() {
   });
   const { title, content, image } = postData;
 
-  const [errors, setErrors] = useState({}); // Keeping this for error handling
+  const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -38,19 +49,23 @@ function PostCreateForm() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Simple validation
-    if (!title || !content) {
-      setErrors({
-        title: !title ? "Title is required" : "",
-        content: !content ? "Content is required" : "",
-      });
-      return; // Stop submission
-    }
+    const formData = new FormData();
 
-    // Handle form submission logic here
-    console.log("Form submitted:", postData);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
   };
 
   const textFields = (
@@ -62,31 +77,38 @@ function PostCreateForm() {
           name="title"
           value={title}
           onChange={handleChange}
-          isInvalid={!!errors.title} // Show validation feedback
         />
-        <Form.Control.Feedback type="invalid">{errors.title}</Form.Control.Feedback>
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
-        <Form.Label>Post Content</Form.Label>
+        <Form.Label>Content</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
           name="content"
           value={content}
           onChange={handleChange}
-          isInvalid={!!errors.content} // Show validation feedback
         />
-        <Form.Control.Feedback type="invalid">{errors.content}</Form.Control.Feedback>
       </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
-        Cancel
+        cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        Create
+        create
       </Button>
     </div>
   );
@@ -118,7 +140,10 @@ function PostCreateForm() {
                   className="d-flex justify-content-center"
                   htmlFor="image-upload"
                 >
-                  <Asset src={Upload} message="Click or tap to upload an image" />
+                  <Asset
+                    src={Upload}
+                    message="Click or tap to upload an image"
+                  />
                 </Form.Label>
               )}
 
@@ -126,8 +151,15 @@ function PostCreateForm() {
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
+                ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
