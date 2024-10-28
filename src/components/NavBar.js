@@ -86,7 +86,7 @@ const NavBar = () => {
         <Navbar.Brand className={styles.NavBrand}
            alt="logo">
           
-           <span>Afghanspher</span>
+           <span>Afghansphere</span>
            <i class="fa-brands fa-skyatlas"></i>
         </Navbar.Brand>
 
