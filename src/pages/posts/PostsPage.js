@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -15,7 +16,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils.js";
+import { fetchMoreData } from "../../utils/utils.js
+";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
