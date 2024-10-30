@@ -6,8 +6,8 @@
   
   .Button {
     border: none;
-    background-color: #242a3d;
-    color: gray;
+    background-color: rgb(161, 159, 159);
+    color: #fff;
     border-radius: 100px;
     padding: 4px 10px;
     min-width: 75px;
