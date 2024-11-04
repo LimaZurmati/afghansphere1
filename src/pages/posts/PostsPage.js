@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Post from "./Post";
 import Asset from "../../components/Asset";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils.js";
 import PopularProfiles from "../profiles/PopularProfiles.js";
+import { useCurrentUser } from "../../contexts/CurrentUserContext"; // Import the context
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faLock } from '@fortawesome/free-solid-svg-icons'; // Import faLock icon
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
-
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser(); // Get the current user
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -46,6 +45,11 @@ function PostsPage({ message, filter = "" }) {
     };
   }, [filter, query, pathname]);
 
+  // Filter posts to show only public posts and private posts owned by the current user
+  const filteredPosts = posts.results.filter(post => 
+    post.is_public || (currentUser && currentUser.username === post.owner)
+  );
+
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -66,12 +70,20 @@ function PostsPage({ message, filter = "" }) {
 
         {hasLoaded ? (
           <>
-            {posts.results.length ? (
+            {filteredPosts.length ? (
               <InfiniteScroll
-                children={posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
+                children={filteredPosts.map((post) => (
+                  <div key={post.id} className={styles.PostItem}>
+                    <div className={styles.ProfileInfo}>
+                      {/* Show the lock icon only if the post is private and the current user is the owner */}
+                      {!post.is_public && currentUser?.username === post.owner && (
+                        <FontAwesomeIcon icon={faLock} />
+                      )}
+                    </div>
+                    <Post {...post} setPosts={setPosts} />
+                  </div>
                 ))}
-                dataLength={posts.results.length}
+                dataLength={filteredPosts.length}
                 loader={<Asset spinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}
@@ -89,7 +101,7 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles /> 
+        <PopularProfiles />
       </Col>
     </Row>
   );

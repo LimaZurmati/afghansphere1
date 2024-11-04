@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -7,23 +6,21 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PostEditForm() {
   const [errors, setErrors] = useState({});
-
   const [postData, setPostData] = useState({
     title: "",
     content: "",
     image: "",
+    is_public: true, // Default to public
   });
-  const { title, content, image } = postData;
+  const { title, content, image, is_public } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -33,9 +30,13 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, image, is_public, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        if (is_owner) {
+          setPostData({ title, content, image, is_public });
+        } else {
+          history.push("/");
+        }
       } catch (err) {
         console.log(err);
       }
@@ -67,6 +68,7 @@ function PostEditForm() {
 
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("is_public", is_public); // Include visibility in form data
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -116,14 +118,32 @@ function PostEditForm() {
         </Alert>
       ))}
 
+      <Form.Group>
+        <Form.Label>Visibility</Form.Label>
+        <Form.Check
+          type="radio"
+          label="Public"
+          name="is_public"
+          checked={is_public}
+          onChange={() => setPostData({ ...postData, is_public: true })}
+        />
+        <Form.Check
+          type="radio"
+          label="Private"
+          name="is_public"
+          checked={!is_public}
+          onChange={() => setPostData({ ...postData, is_public: false })}
+        />
+      </Form.Group>
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+        Save
       </Button>
     </div>
   );

@@ -1,25 +1,27 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
+// Bootstrap imports
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
-
+// axios
 import { axiosReq } from "../../api/axiosDefaults";
+// component
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
+import { useRedirect } from "../../hooks/useRedirect";
+// css
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 const ProfileEditForm = () => {
+  useRedirect('loggedOut');
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
@@ -28,10 +30,13 @@ const ProfileEditForm = () => {
 
   const [profileData, setProfileData] = useState({
     name: "",
-    content: "",
+    bio: "",
     image: "",
+    github: "",
+    linkedin: "",
   });
-  const { name, content, image } = profileData;
+
+  const { name, bio, image, github, linkedin } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -40,10 +45,10 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, bio, image, github, linkedin } = data;
+          setProfileData({ name, bio, image, github, linkedin });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           history.push("/");
         }
       } else {
@@ -65,8 +70,10 @@ const ProfileEditForm = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
-    formData.append("content", content);
-
+    formData.append("bio", bio);
+    formData.append("github", github);
+    formData.append("linkedin", linkedin);
+    
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
     }
@@ -79,7 +86,7 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -90,18 +97,48 @@ const ProfileEditForm = () => {
         <Form.Label>Bio</Form.Label>
         <Form.Control
           as="textarea"
-          value={content}
+          value={bio}
           onChange={handleChange}
-          name="content"
+          name="bio"
           rows={7}
         />
       </Form.Group>
-
-      {errors?.content?.map((message, idx) => (
+      {errors?.bio?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+
+      <Form.Group>
+        <Form.Label>GitHub Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={github}
+          onChange={handleChange}
+          name="github"
+        />
+      </Form.Group>
+      {errors?.github?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>LinkedIn Link</Form.Label>
+        <Form.Control
+          type="url"
+          value={linkedin}
+          onChange={handleChange}
+          name="linkedin"
+        />
+      </Form.Group>
+      {errors?.linkedin?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -115,10 +152,10 @@ const ProfileEditForm = () => {
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
+    <Form className="mt-2 mt-md-5" onSubmit={handleSubmit}>
+      <Row className={appStyles.Content}>
         <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container className={appStyles.Content}>
+          <Container>
             <Form.Group>
               {image && (
                 <figure>
