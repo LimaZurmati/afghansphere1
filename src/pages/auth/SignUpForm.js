@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
@@ -16,8 +15,10 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -130,7 +131,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://res.cloudinary.com/dwdurc38f/image/upload/v1729967747/Afghanistan-Flag-Best-Wallpaper-86013_aw9ydh.jpg"}
+          src={"https://res.cloudinary.com/dwdurc38f/image/upload/v1730056061/photo-1642917457648-de25f59aeaa7_uzcnc6.jpg"}
         />
       </Col>
     </Row>
@@ -138,5 +139,3 @@ const SignUpForm = () => {
 };
 
 export default SignUpForm;
-
-          
