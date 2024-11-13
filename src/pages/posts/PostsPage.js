@@ -13,16 +13,16 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils.js";
 import PopularProfiles from "../profiles/PopularProfiles.js";
-import { useCurrentUser } from "../../contexts/CurrentUserContext"; // Import the context
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
-import { faLock } from '@fortawesome/free-solid-svg-icons'; // Import faLock icon
+import { useCurrentUser } from "../../contexts/CurrentUserContext"; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
+import { faLock } from '@fortawesome/free-solid-svg-icons'; 
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
-  const currentUser = useCurrentUser(); // Get the current user
+  const currentUser = useCurrentUser(); 
 
   useEffect(() => {
     const fetchPosts = async () => {

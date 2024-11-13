@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -19,6 +19,7 @@ const Post = (props) => {
     title,
     content,
     image,
+    video,
     updated_at,
     postPage,
     setPosts,
@@ -27,6 +28,8 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  
+  const [showShareMenu, setShowShareMenu] = useState(false); // State for share menu visibility
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -73,6 +76,29 @@ const Post = (props) => {
     }
   };
 
+  // Handle menu toggle
+  const toggleShareMenu = () => {
+    setShowShareMenu(!showShareMenu);
+  };
+
+  // Share functions
+  const copyLink = () => {
+    const shareUrl = `${window.location.origin}/posts/${id}`;
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      alert("Link copied to clipboard!");
+    });
+  };
+
+  const shareOnFacebook = () => {
+    const shareUrl = `${window.location.origin}/posts/${id}`;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank');
+  };
+
+  const shareOnGmail = () => {
+    const shareUrl = `${window.location.origin}/posts/${id}`;
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=&su=${encodeURIComponent(title)}&body=${encodeURIComponent(shareUrl)}`, '_blank');
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -93,12 +119,20 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
-        <Card.Img src={image} alt={title} />
+        {video ? (
+          <video controls className={styles.Video}>
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <Card.Img src={image} alt={title} />
+        )}
       </Link>
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {content && <Card.Text>{content}</Card.Text>}
         <div className={styles.PostBar}>
+          {/* Like button logic */}
           {is_owner ? (
             <OverlayTrigger
               placement="top"
@@ -117,7 +151,7 @@ const Post = (props) => {
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              overlay={<Tooltip>Log in to like</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
@@ -127,6 +161,23 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+          {/* Share button */}
+          <span onClick={toggleShareMenu}>
+            <i className="fas fa-share" />
+          </span>
+          {showShareMenu && (
+            <div className={styles.ShareMenu}>
+              <span onClick={copyLink} className={styles.ShareIcon}>
+                <i className="fas fa-link" />
+              </span>
+              <span onClick={shareOnFacebook} className={styles.ShareIcon}>
+                <i className="fab fa-facebook" />
+              </span>
+              <span onClick={shareOnGmail} className={styles.ShareIcon}>
+                <i className="fas fa-envelope" />
+              </span>
+            </div>
+          )}
         </div>
       </Card.Body>
     </Card>

@@ -18,11 +18,13 @@ function PostEditForm() {
     title: "",
     content: "",
     image: "",
+    video: "", // Add video field to state
     is_public: true, // Default to public
   });
-  const { title, content, image, is_public } = postData;
+  const { title, content, image, video, is_public } = postData;
 
   const imageInput = useRef(null);
+  const videoInput = useRef(null); // Reference for video input
   const history = useHistory();
   const { id } = useParams();
 
@@ -30,10 +32,10 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_public, is_owner } = data;
+        const { title, content, image, video, is_public, is_owner } = data;
 
         if (is_owner) {
-          setPostData({ title, content, image, is_public });
+          setPostData({ title, content, image, video, is_public });
         } else {
           history.push("/");
         }
@@ -62,6 +64,16 @@ function PostEditForm() {
     }
   };
 
+  const handleChangeVideo = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(video);
+      setPostData({
+        ...postData,
+        video: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -72,6 +84,10 @@ function PostEditForm() {
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
+    }
+
+    if (videoInput?.current?.files[0]) { // Append video if available
+      formData.append("video", videoInput.current.files[0]);
     }
 
     try {
@@ -176,6 +192,37 @@ function PostEditForm() {
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="text-center">
+              <figure>
+                {video && (
+                  <video controls className={appStyles.Video}>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+              </figure>
+              <div>
+                <Form.Label
+                  className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                  htmlFor="video-upload"
+                >
+                  Change the video
+                </Form.Label>
+              </div>
+
+              <Form.File
+                id="video-upload"
+                accept="video/*"
+                onChange={handleChangeVideo}
+                ref={videoInput}
+              />
+            </Form.Group>
+            {errors?.video?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>

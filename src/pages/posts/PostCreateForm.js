@@ -7,7 +7,8 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import Asset from "../../components/Asset";
-import Upload from "../../assets/upload.png";
+import Upload from "../../assets/upload.png"; // Import the upload image
+import VideoIcon from "../../assets/video.png"; // Import the video icon
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -22,11 +23,13 @@ function PostCreateForm() {
     title: "",
     content: "",
     image: "",
-    is_public: true, // Default to public
+    video: "", // Store video file
+    is_public: true,
   });
-  const { title, content, image, is_public } = postData;
+  const { title, content, image, video, is_public } = postData;
 
   const imageInput = useRef(null);
+  const videoInput = useRef(null); // Reference for video input
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -38,10 +41,24 @@ function PostCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      if (image) URL.revokeObjectURL(image); // Revoke the previous object URL
+      const newImageUrl = URL.createObjectURL(event.target.files[0]);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        image: newImageUrl, // Create a URL for the selected image
+        video: "", // Clear video when an image is selected
+      });
+    }
+  };
+
+  const handleChangeVideo = (event) => {
+    if (event.target.files.length) {
+      if (video) URL.revokeObjectURL(video); // Revoke the previous object URL
+      const newVideoUrl = URL.createObjectURL(event.target.files[0]);
+      setPostData({
+        ...postData,
+        video: newVideoUrl, // Create a URL for the selected video
+        image: "", // Clear image when a video is selected
       });
     }
   };
@@ -51,8 +68,13 @@ function PostCreateForm() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
-    formData.append("image", imageInput.current.files[0]);
-    formData.append("is_public", is_public); // Include visibility in the form data
+    if (imageInput.current.files[0]) {
+      formData.append("image", imageInput.current.files[0]); // Append the image file
+    }
+    if (videoInput.current.files[0]) {
+      formData.append("video", videoInput.current.files[0]); // Append the video file
+    }
+    formData.append("is_public", is_public);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -129,7 +151,7 @@ function PostCreateForm() {
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} encType="multipart/form-data">
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container
@@ -167,9 +189,50 @@ function PostCreateForm() {
                 accept="image/*"
                 onChange={handleChangeImage}
                 ref={imageInput}
+                disabled={!!video} // Disable image upload if a video is selected
               />
             </Form.Group>
             {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
+            {/* Video Upload Section */}
+            <Form.Group className="text-center">
+              {video ? (
+                <>
+                  <video className={appStyles.Video} controls>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div>
+                    <Form.Label
+                      className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                      htmlFor="video-upload"
+                    >
+                      Change the video
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label htmlFor="video-upload">
+                  <Asset
+                    src={VideoIcon} // Use video icon for video upload prompt
+                    message="Click or tap to upload a video"
+                  />
+                </Form.Label>
+              )}
+              <Form.File
+                id="video-upload"
+                accept="video/*"
+                onChange={handleChangeVideo}
+                ref={videoInput}
+                disabled={!!image} // Disable video upload if an image is selected
+              />
+              {video && <p>Video ready for upload: {videoInput.current?.files[0]?.name}</p>} {/* Show video name if selected */}
+            </Form.Group>
+            {errors?.video?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
