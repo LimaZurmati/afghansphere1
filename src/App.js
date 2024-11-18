@@ -1,4 +1,3 @@
-
 import styles from "./App.module.css";
 import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
@@ -74,6 +73,7 @@ function App() {
             render={() => <ProfileEditForm />}
           />
           <Route render={() => <p>Page not found!</p>} />
+          
         </Switch>
       </Container>
     </div>

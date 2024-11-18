@@ -18,8 +18,8 @@ function PostEditForm() {
     title: "",
     content: "",
     image: "",
-    video: "", // Add video field to state
-    is_public: true, // Default to public
+    video: "", 
+    is_public: true, 
   });
   const { title, content, image, video, is_public } = postData;
 

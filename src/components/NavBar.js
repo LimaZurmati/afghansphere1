@@ -41,10 +41,12 @@ const NavBar = () => {
        <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
-        to="/feed"
+        to="/liked"
       >
         <i class="fa-solid fa-heart"></i>Liked
       </NavLink>
+
+     
 
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
@@ -81,7 +83,7 @@ const NavBar = () => {
         <Navbar.Brand className={styles.NavBrand}
            alt="logo">
           
-           <span>Afghansphere</span>
+           <span>AfghanSphere</span>
            <i class="fa-brands fa-skyatlas"></i>
         </Navbar.Brand>
 

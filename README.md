@@ -1,70 +1,415 @@
-# Getting Started with Create React App
+<h1 align="center">Afghanspere</h1> 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ The Afghansphere project aims to be a vibrant platform that not only showcases Afghanistan's natural beauty and historical significance but also serves as a community-driven space for sharing personal experiences and cultural pride. By engaging both locals and visitors, the project can promote a deeper understanding and appreciation of Afghanistan's unique heritage. [Deployed Link](https://afghansphere-4d07ea9a1a6f.herokuapp.com/)
 
-## Available Scripts
+  <!-- I AM Responsive image -->
+  ![Afghansphere](docs/images/res.png)
 
-In the project directory, you can run:
+# B. The Afghansphere Front-end Documentation
 
-### `npm start`
+##  User Experience
+### _Project Objective:_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The primary objective of Afghansphere is to create a focused and dynamic platform that enables Afghan enthusiasts to connect, share, and engage around the core activities of post sharing and community interaction. This platform aims to provide a tailored and immersive experience for users, promoting collaboration, knowledge sharing, and community building.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Here’s the revised text for **Afghansphere**:  
 
-### `npm test`
+### _Site User's Goal:_  
+Users of Afghansphere seek to achieve the following goals:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Content Sharing**: Share pictures and videos related to Afghan culture, experiences, and insights to contribute to the community's collective storytelling.
+2. **Engagement**: Like, comment, and interact with posts to foster meaningful conversations and connections within the community.
+3. **User Profile Management**: Maintain a comprehensive user profile that showcases personal interests and contributions to Afghansphere.
+4. **Stay Informed**: Keep up-to-date with the latest content shared by others in the Afghansphere community.
 
-### `npm run build`
+### _Site Owners' Goals:_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The site owners aim to achieve the following objectives:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **User Engagement**: Encourage active participation, interactions, and content sharing among users to create a vibrant and dynamic community.
+2. **User Growth**: Attract new users to the platform and retain existing members, ensuring a steady increase in the user base for ongoing engagement.
+3. **Quality Content**: Maintain high-quality posts and comments by moderating contributions to promote valuable and relevant content.
+4. **Community Interaction**: Foster meaningful discussions and connections through likes and comments on shared pictures and videos.
+5. **Platform Sustainability**: Ensure the long-term viability and relevance of the app within the Afghan community.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+By focusing on core features like post sharing and user interaction, Afghansphere can provide a specialized and valuable experience for its users while meeting the goals of the site owners.
 
-### `npm run eject`
+## Project Management
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### _GitHub Project Board_
+Throughout my project management journey, I have leveraged the powerful features of GitHub Project Boards to effectively organize and enhance my latest initiative. It all started with a surge of creativity inspired by my carefully designed wireframe models. These models laid the groundwork for a series of detailed user stories, each acting as a vital component in bringing my project to fruition.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User stories go beyond mere descriptions; they offer a clear and logical framework for development, ensuring that the final product aligns closely with my vision. This intentional strategy helps maintain order and facilitates timely progress.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To reinforce this structure, I established milestones, particularly focusing on the frontend application. Milestones serve as crucial checkpoints, enabling me to monitor the project's progress in manageable segments.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+What makes this process even more intriguing is my use of the MoSCo method to prioritize features and issues, categorizing them into Must-haves, Should-haves, Could-haves, and Won't-haves. This method acts as my strategic advantage, allowing me to make informed decisions and ensuring that essential elements are addressed before exploring finer details, thereby enhancing efficiency.
 
-## Learn More
+Ensuring quality is also a priority. I have carefully documented acceptance criteria for each user story, which serve as clear benchmarks for completion, eliminating ambiguity and guaranteeing that every aspect of the project meets my high standards.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To unify these efforts, I have broken each user story down into a series of detailed tasks that are intricately linked to the overall narrative. These tasks act as practical building blocks for execution, providing a clear roadmap for my dedicated development team. They help maintain the structure of the workflow while allowing for an effective division of labor. 
+### Note: The issues created for the Pythonista app are available in [this repository](https://github.com/users/LimaZurmati/projects/16). I have linked these issues to a separate React repository specifically focused on front-end development.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Agile development methodology
+GitHub issues and projects were used to document and track an agile development approach.
+A GitHub issue was created for each user story, with labels to indicate if they were required for the MVP. A GitHub milestone was created to represent the product backlog. All user stories were initially added to the product backlog.
 
-### Code Splitting
+Development work was scheduled using a series of iterations each with a timebox of three working days, representing a total 16 story points (although the duration of each iteration in calendar days was variable due to fitting the three working days around work and other commitments).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+A GitHub project board was created for each iteration, and user stories moved from the product backlog into the relevant iteration as each cycle of work began. User stories were labelled as 'must have', 'could have' or 'should have' goals for that specific iteration, and assigned story point values.  Story points for 'must have' user stories never exceeded 9 (60%). Some iterations also contained 'tasks' for activity not represented as user stories, such as setup/configuration and design/styling.
 
-### Analyzing the Bundle Size
+A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate. For example, the iteration 2 project board was captured at the start, in the middle and at the end:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Agile Development Methodology
 
-### Making a Progressive Web App
+An agile development approach was documented and tracked using GitHub issues and projects. Each user story was represented as a GitHub issue, labeled to indicate its necessity for the MVP. A GitHub milestone was established to serve as the product backlog, where all user stories were initially listed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Development was organized into a series of iterations, each with a timebox of three working days, totaling 17 story points. The actual duration of each iteration varied in calendar days due to the need to accommodate work and other commitments.
 
-### Advanced Configuration
+A GitHub project board was created for each iteration, allowing user stories to be moved from the product backlog into the relevant iteration at the start of each work cycle. User stories were categorized with labels indicating whether they were 'must have', 'could have', or 'should have' for that iteration, along with assigned story point values. Story points for 'must have' user stories were capped at 9 (60%). Some iterations included additional 'tasks' for activities not represented as user stories, such as setup/configuration and design/styling.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+A project kanban board was utilized to monitor progress, with user stories transitioning between the 'Todo', 'In Progress', and 'Done' columns as appropriate. For instance, the iteration 2 project board was documented at the beginning, midpoint, and conclusion.
+![GitHub Project Board for Pythonista app](docs/images/us.PNG)
+![GitHub Project Board for Pythonista app](docs/images/usersory2.PNG)
 
-### Deployment
+### _User Stories_
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. As a User, I can access the navigation bar across the site, allowing me to easily move between pages from any location.
+2. As a User, I can sign into the app to unlock the full functionality of the site.
+3. As a User, I can sign out of the app to halt access to full features when I'm not actively participating.
+4. As a User, I can view other users' profile pictures to easily recognize them within the application.
+5. As a User, I can create posts to share my experiences with the community.
+6. As a User, I can view the details of a single post to gain more insights.
+7. As a logged-in User, I can like a post to express my support for content that resonates with me.
+8. As a User, I can search for posts, events, and profiles using keywords to find the content and users that interest me most.
+9. As a User, I can see a comprehensive list of all posts shared on the site.
+10. As a logged-in User, I can edit my own posts to update information or correct errors.
+11. As a logged-in User, I can create comments to engage with the community.
+12. As a logged-in User, I can edit my comments to modify or improve my existing content.
+13. As a logged-in User, I can delete my comments when I choose to remove them.
+14. As a User, I can view another user's profile page to explore more details about them.
+15. As a User, I can update my profile information to keep it current.
+16. As a logged-in User, I can follow and unfollow other users, making it easy to manage my follower list.
+17. As a User, I can discover additional profiles to find more individuals to follow.
 
-### `npm run build` fails to minify
+## Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Colours
+The primary design goal for the Afghansphere app was to achieve a clean and functional aesthetic. The DaisyUI component library was selected for its straightforward color theming feature, enabling the developer to create multiple color themes with a limited palette and semantic class names. This approach aligns perfectly with the desire for a simple and uncluttered user interface.
+
+The colour palette is made up of following colours:
+ * rgb(204, 201, 201); - content background-color
+ * black - boreder
+ * #ffffff - a
+ * #2142b2 - a:hover
+ * #555 - background
+ * rgb(225, 222, 222) - App background
+
+### _Typography_
+I used two google fonts for pythonista:
+ * **'Open Sans', sans-serif;'** - Sit content
+
+ ## Features
+
+
+### _Existing Features_
+**Navigation Bar**
+
+![NavBar](docs/images/nav.PNG)
+
+The navigation bar includes various clickable links, allowing the user to easily access the pages on the app. The links change according to whether the user is signed in or out, giving them access to more content once signed in.
+The links on the navbar are:
+
+* Afghanspere Logo
+* Home
+* upload Post
+* Liked
+* User Action (displayed as dropdown menu )
+    * Profile
+    * Sign Out
+* Sign Up
+* Sign In
+
+To enhance user navigation, the navigation bar is fixed at the top of the page, remaining visible as users scroll down.
+
+* 
+The navigation bar maintains a consistent appearance across all pages, ensuring a uniform experience throughout the app.
+
+A hover effect is included, causing the icons to change to a turquoise color and the cursor to turn into a pointer when hovering over both the text and icons, indicating that they are clickable.
+
+React Bootstrap was utilized to build the navigation bar, ensuring it is fully responsive on all devices.
+* **Navbar When users are not loggedIn**
+
+    ![Mobile Navbar](docs/images/navbar1.PNG)
+
+* **Navbar in Mobile's Screen**
+
+    ![Mobile Navbar](docs/images/nav2PNG.PNG)
+
+* **Navbar in Tablet's Screen**
+
+    ![Mobile Navbar](docs/images/nav3.PNG)
+
+Home Page ![Home Page](docs/images/hpmepage.PNG) The homepage serves as the initial point of access for users, featuring user posts, a post search function, and options to discover profiles. Each post displays the user's username and profile image, along with the posting date, content, and details of user interactions, such as likes and comment counts.    
+
+* **Post Page**
+
+    ![Post Page](docs/images/postpage.PNG)
+
+    The post page contains further information on the post in question, as well as the homepage version of the post.
+
+    The features here are:
+
+    * Ability to create a comment if logged in.
+    * Ability to edit or delete post if you are the owner of the post.
+* **Create Post Form**
+
+  ![Create post](docs/images/uploadpost.PNG)  
+  Logged-in users can share new posts with the community. By clicking the Create Post icon in the navigation bar, they are directed to the page for submitting a new post, where they can fill out the post creation form to send to the API.
+
+* **Post Edit Form**
+
+  ![Post Edit Form](docs/images/editpost.PNG) 
+  When users click on a post, they are taken to the post page. By selecting the "3 dot" button next to the post date, they can access the edit post feature. Clicking "edit" brings up the post creation form, pre-filled with the existing post information. Users can modify the desired fields and save their changes, which will redirect them to the post detail page, confirming that the post has been successfully updated.    
+  
+Profile Page ![Profile Page](docs/images/postpage.PNG)
+The profile page displays the selected user's information—either your own via the navigation bar or another user’s by clicking their profile image. It includes the user’s username, profile image, bio, social media links, and statistics such as followers, posts, and events. Additionally, it shows any posts or events created by the user. The only information that gets updated on the profile page includes:
+The number of posts the user has published
+The number of profiles they are following
+The number of profiles that follow them
+
+Edit Profile Page ![Edit Profile Page](docs/images/editprofile.PNG)
+By selecting the Edit Profile option, users are taken to a new page with a complete profile details form to fill out and submit. Here, they can upload their avatar image, write a bio, and include links to their GitHub and LinkedIn. Once these fields are completed, they will be visible to other users in the main profile page stats section. Any entered website links can be clicked to open in a new browser tab. Each profile also features a follow button within the stats section, allowing other users to follow or unfollow as needed, since not all profiles are displayed in the popular profiles component.
+
+* **SignUp Page**
+
+    ![SignUp Page](docs/images/sginup.PNG)
+
+    The sign up page is only accessible if the user is logged out. This page consists of a form to be completed in order to sign up and create an account, and a link to the sign in page if the user already has an account.
+
+* **SignIn Page**
+
+    ![SignIn Page](docs/images/sihn.PNG)
+
+    The sign in page is only accessible if the user is logged out. This page consists of a form to be completed in order to sign in, and a link to the sign up page if the user does not yet have an account.
+
+
+
+### _Future Implementations_
+
+If there was time after my gratuation I'd like to implement these feature in Pythonista appp and make it more powerfull.
+
+* **Notification Syatem:**
+Allow users to recive notification when someone leave a comment on her/his post, event post or add reaction on a post.
+
+* **Messaging System:**
+A chat functionality, allowing users to send each other messages, and thus to create stronger connections between like-minded people.
+Seeing which users are online including links to the chat page, enabling users to have real-time conversations.
+
+## Design
+
+### _Mock-Up_
+
+* **Home Page**
+![Home Page mock-up](docs/images/hpmepage.PNG)
+
+* **Create Post Page**
+![Create Post Form mock-up](docs/images/postpage.PNG)
+
+* **Create Post Page**
+![Create post Form mock-up](docs/images/editpost.PNG)
+
+* **Sign UpPage**
+![Profile Page](docs/images/sginup.PNG)
+
+* **Sign In Page**
+![Profile Page](docs/images/sihn.PNG)
+
+
+## Test
+
+### _Code Validation_
+The Afghansphere site has been passed through the W3C CSS Validator .
+
+* **W3C CSS Validation Results:**
+ No errors or warnings were found when the code was passed through the W3C CSS Validation checker.
+  
+  ![W3C CSS](docs/images/w3c.PNG)
+
+
+### _Automatic Testing_
+The Jest automatic tests have been written to check that the main frontend components render correctly.
+
+![W3C CSS](frontend/src/assets/readme/jestTest.jpg)
+
+
+Here's an updated version of your manual testing documentation tailored for an AfghanSPere app:
+
+---
+
+### _Manual Testing_
+
+In addition to the automated tests, I conducted the following manual tests to verify all user story scenarios:
+
+#### **Authentication - User Logged Out**
+1. The user cannot access the following URLs; they are redirected to the Home page:
+   - Create Post Page
+   - Edit Post Page
+   - Edit Profile Page
+
+2. **Sign In/Sign Up Page**
+   - Desktop users can see an image next to the Sign In/Sign Up form.
+   - Mobile and tablet users cannot see an image next to the Sign In/Sign Up form.
+
+3. **Navigation Bar**
+   - Logged-out users cannot access the following links:
+     - Profile
+     - Sign Out
+
+#### **Post Component - Logged In**
+- Users can create a post.
+- Users can upload an image.
+- Users can change the uploaded image.
+- Users can like a post.
+- Users can leave a comment.
+- Users can edit/delete their own posts.
+
+#### **Profiles - Logged In**
+- Users can view other users' profiles by clicking on their avatars.
+- Users can edit their own profiles.
+- Users can change their username.
+- Users can set a new password.
+
+#### **Following/Unfollowing - Logged In**
+- Users can follow other users.
+- Users can unfollow other users.
+
+### **Further Testing Scenarios**
+- **Error Handling**: Confirm that relevant error messages appear for unsuccessful actions (e.g., issues with post creation or image uploads).
+- **Responsiveness**: Ensure that all components adapt properly and operate smoothly across different screen sizes.
+- **Accessibility**: Validate that the app complies with accessibility guidelines (e.g., keyboard navigation and screen reader support).
+- **Performance**: Assess the loading times of different pages and components, particularly during peak usage.
+
+---
+
+You can modify any specific details to better align with the features and functionalities of your AfghanSPere app!
+
+
+### _Responsiveness Testing_
+The responsive design tests were carried out manually throughout the build using [https://ui.dev/amiresponsive]. I based the main design around a desktop view, as this is primarily a browser based platform, although I have added responsive design for tablet and mobile devices as well.
+
+Here are the results:
+
+*  _Desktop View_
+    ![Desktop View](docs/images/hpmepage.PNG)
+
+*  _Tablet View_
+    ![Tablet View](docs/images/tablet.PNG)
+
+*  _Mobile View_
+
+    ![Mobile View](docs/images/phone.PNG)
+
+
+### _Lighthouse Testing_
+Google Lighthouse in Chrome Developer Tools was used to test the application within the areas of Performance, Accessibility, Best Practices and SEO.
+
+![Lighthouse Report](docs/images/ligthouse.PNG)
+
+## Bugs
+
+### _Solved Bugs_
+In the Afghanspherere app, users are experiencing an issue where newly created profiles do not appear on the posts page. This is a critical functionality as it affects user engagement and the visibility of content within the community.
+
+### _UnSolved Bugs_
+No bugs so far.
+
+
+## Technologies Used
+
+### _Languages_
+
+* **HTML5** - Provides the content and structure for the website.
+* **CSS3** - Provides the styling for the website.
+* **JavaScript** - Provides interactive elements of the website.
+* **React.js** - Provides the base for the frontend components.
+
+### _Frameworks, Libraries & Programs_
+
+* **React -** React was used to create this web app.
+* **React Bootstrap -** React Bootstrap was used to create this web app and to make it fully responsive.
+* **Git -** Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+* **GitHub -** GitHub is used to store the projects code after being pushed from Git.
+* **GitHub Projects -** GitHub Projects was used to create the User Stories.
+* **Heroku -** Heroku was used for the deployed application.
+* **Chrome DevTools -** Chrome DevTools was used to consistently check the site in terms of responsivity, performance, accessibility, best practice and SEO.
+* **Cloudinary -** A service that hosts image files in the project.
+* **React Router -** React library for rendering components in the DOM.
+* **Axios -** To tell the React project to send requests to the API.
+* **React Infinite Scroll Component -** For implementing infinite scrolling.
+* **Jwt-Decode -** Securely implement authentication with JSON Web Tokens.
+* **Pillow -** Adds image processing capabilities to your Python interpreter.
+* **React Notifications -** Library for displaying notifications.
+
+## Deployment
+
+
+
+### Steps Before Beployment 
+
+1. Run npm audit fix in the frontend to fix API errors and feedback
+2. collect the admin and DRF staticfiles with the followin command in the terminal:
+```
+  python3 manage.py collectstatic
+```
+3. compile the React application and move its files to the staticfiles folder. In the terminal, cd into the frontend directory typing:
+```
+cd frontend
+```
+4. Run the command to compile and move the React files:
+```
+  npm run build && mv build ../staticfiles/.
+```
+**Note:** We need to re-run this command any time you want to deploy changes to the static files in your project, including the React code. To do this, you need to delete the existing build folder and rebuild it. This command will delete the old folder and replace it with the new one:
+```
+  npm run build && rm -rf ../staticfiles/build && mv build ../staticfiles/.
+```
+5. Create a new file in the root directory named runtime.txt
+6. Inside the runtime.txt, add the following line: `python-3.9.16`
+7. In the `env.py` file, ensure that both the `DEBUG` and `DEV` enviroment varibles are comment out.
+
+8. Run the Django server, in the terminal type: python3 manage.py runserver, then open the preview on `port 8000` to check that your application is runnig. The React server should be not be running. This is a test to check that Django is serving the React static files.
+
+9. Commit and push the changes.
+
+### _Heroku_
+
+1. In your heroku account, select Create New App, and give it a unique name related to your project.
+2. Select a region corresponding to where you live and click `Create App`.
+3. Head into the `Deploy` tab select GitHub as the `deployment method`, find your project repository and click `Connect`.
+4. Click `Deploy branch` to trigger Heroku to start building the application.
+5. Once you see the message saying 'build succeeded' you can click `Open App` to see your application in the browser.
+
+
+
+
+### Clearfication about Repositories 
+Here you can find the repositories that I created for pp5 to address my progress:
+
+1. [Pythonista App](https://github.com/sediqa01/pythonista_app) : The current repository for PP5 was recently created, using the appropriate GitHab template tailored for myproject needs.
+
+2. [Pythonista API](https://github.com/sediqa01/pythonista_api) :The Pythonista API repository was established specifically for DRF-API, and I subsequently cloned the frontend repository alongside it. This led to an unsuccessful deployment due to an incorrect template for this project.
+
+3. [Pythonista](https://github.com/sediqa01/pythonista) : Initially, this repository was dedicated to the front-end development. It held the complete progress of my project before the cloning phase, serving as a comprehensive reference for all aspects of my work. also I created 
+
+
+## Credits
+
+1. The **Code Institute moments** walkthrough project both backend and frontend was a big guide.
+2. The Upload image on the create event, and create post taken from **pngtree.com**
+4. The image for not found page was taken from **Iconduck** site.
+5. In order to find a solution to a problem, I often search on the **Stackoverflow.**
+6. The code for create event button as link was taken from **Where Is The Mouse**, Alexa Hendry helped me to sort it out.
+    component dir > CreateEventForm.js file
+7. The Sign In / Sign up pic created in **My Free Logo Maker** by Sediqa Talbi
+8. The **react-notification** library were used for displaying notifications. 
