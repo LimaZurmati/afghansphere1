@@ -396,11 +396,7 @@ cd frontend
 ### Clearfication about Repositories 
 Here you can find the repositories that I created for pp5 to address my progress:
 
-1. [Pythonista App](https://github.com/sediqa01/pythonista_app) : The current repository for PP5 was recently created, using the appropriate GitHab template tailored for myproject needs.
 
-2. [Pythonista API](https://github.com/sediqa01/pythonista_api) :The Pythonista API repository was established specifically for DRF-API, and I subsequently cloned the frontend repository alongside it. This led to an unsuccessful deployment due to an incorrect template for this project.
-
-3. [Pythonista](https://github.com/sediqa01/pythonista) : Initially, this repository was dedicated to the front-end development. It held the complete progress of my project before the cloning phase, serving as a comprehensive reference for all aspects of my work. also I created 
 
 
 ## Credits
