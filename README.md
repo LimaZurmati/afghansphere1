@@ -50,15 +50,6 @@ Ensuring quality is also a priority. I have carefully documented acceptance crit
 To unify these efforts, I have broken each user story down into a series of detailed tasks that are intricately linked to the overall narrative. These tasks act as practical building blocks for execution, providing a clear roadmap for my dedicated development team. They help maintain the structure of the workflow while allowing for an effective division of labor. 
 ### Note: The issues created for the Pythonista app are available in [this repository](https://github.com/users/LimaZurmati/projects/16). I have linked these issues to a separate React repository specifically focused on front-end development.
 
-## Agile development methodology
-GitHub issues and projects were used to document and track an agile development approach.
-A GitHub issue was created for each user story, with labels to indicate if they were required for the MVP. A GitHub milestone was created to represent the product backlog. All user stories were initially added to the product backlog.
-
-Development work was scheduled using a series of iterations each with a timebox of three working days, representing a total 16 story points (although the duration of each iteration in calendar days was variable due to fitting the three working days around work and other commitments).
-
-A GitHub project board was created for each iteration, and user stories moved from the product backlog into the relevant iteration as each cycle of work began. User stories were labelled as 'must have', 'could have' or 'should have' goals for that specific iteration, and assigned story point values.  Story points for 'must have' user stories never exceeded 9 (60%). Some iterations also contained 'tasks' for activity not represented as user stories, such as setup/configuration and design/styling.
-
-A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate. For example, the iteration 2 project board was captured at the start, in the middle and at the end:
 
 ## Agile Development Methodology
 
@@ -69,8 +60,8 @@ Development was organized into a series of iterations, each with a timebox of th
 A GitHub project board was created for each iteration, allowing user stories to be moved from the product backlog into the relevant iteration at the start of each work cycle. User stories were categorized with labels indicating whether they were 'must have', 'could have', or 'should have' for that iteration, along with assigned story point values. Story points for 'must have' user stories were capped at 9 (60%). Some iterations included additional 'tasks' for activities not represented as user stories, such as setup/configuration and design/styling.
 
 A project kanban board was utilized to monitor progress, with user stories transitioning between the 'Todo', 'In Progress', and 'Done' columns as appropriate. For instance, the iteration 2 project board was documented at the beginning, midpoint, and conclusion.
-![GitHub Project Board for Pythonista app](docs/images/us.PNG)
-![GitHub Project Board for Pythonista app](docs/images/usersory2.PNG)
+![GitHub Project Board for Aghansphere app](docs/images/us.PNG)
+![GitHub Project Board for Afghansphere app](docs/images/usersory2.PNG) [User story project](https://github.com/LimaZurmati/afghansphere)
 
 ### _User Stories_
 
@@ -172,7 +163,7 @@ Home Page ![Home Page](docs/images/hpmepage.PNG) The homepage serves as the init
   ![Post Edit Form](docs/images/editpost.PNG) 
   When users click on a post, they are taken to the post page. By selecting the "3 dot" button next to the post date, they can access the edit post feature. Clicking "edit" brings up the post creation form, pre-filled with the existing post information. Users can modify the desired fields and save their changes, which will redirect them to the post detail page, confirming that the post has been successfully updated.    
   
-Profile Page ![Profile Page](docs/images/postpage.PNG)
+Profile Page ![Profile Page](docs/images/profilepage.PNG)
 The profile page displays the selected user's information—either your own via the navigation bar or another user’s by clicking their profile image. It includes the user’s username, profile image, bio, social media links, and statistics such as followers, posts, and events. Additionally, it shows any posts or events created by the user. The only information that gets updated on the profile page includes:
 The number of posts the user has published
 The number of profiles they are following
@@ -199,7 +190,7 @@ By selecting the Edit Profile option, users are taken to a new page with a compl
 
 If there was time after my gratuation I'd like to implement these feature in Pythonista appp and make it more powerfull.
 
-* **Notification Syatem:**
+* **Notification System:**
 Allow users to recive notification when someone leave a comment on her/his post, event post or add reaction on a post.
 
 * **Messaging System:**
@@ -211,115 +202,32 @@ Seeing which users are online including links to the chat page, enabling users t
 ### _Mock-Up_
 
 * **Home Page**
-![Home Page mock-up](docs/images/hpmepage.PNG)
+![Home Page mock-up](docs/images/homemochup.PNG)
 
 * **Create Post Page**
-![Create Post Form mock-up](docs/images/postpage.PNG)
+![Create Post Form mock-up](docs/images/postmock.PNG)
 
-* **Create Post Page**
-![Create post Form mock-up](docs/images/editpost.PNG)
+* **Upload Post Page**
+![Create Post Form mock-up](docs/images/uploadmock.PNG)
+
+* **Profile**
+![Create Post Form mock-up](docs/images/profilemock.PNG)
 
 * **Sign UpPage**
-![Profile Page](docs/images/sginup.PNG)
+![Profile Page](docs/images/sginupmoch.PNG)
 
 * **Sign In Page**
-![Profile Page](docs/images/sihn.PNG)
+![Profile Page](docs/images/signiinmock.PNG)
 
 
-## Test
+## Testing  Part [testing.md](/testing.md) 
 
-### _Code Validation_
-The Afghansphere site has been passed through the W3C CSS Validator .
-
-* **W3C CSS Validation Results:**
- No errors or warnings were found when the code was passed through the W3C CSS Validation checker.
-  
-  ![W3C CSS](docs/images/w3c.PNG)
-
-
-### _Automatic Testing_
-The Jest automatic tests have been written to check that the main frontend components render correctly.
-
-![W3C CSS](frontend/src/assets/readme/jestTest.jpg)
-
-
-Here's an updated version of your manual testing documentation tailored for an AfghanSPere app:
-
----
-
-### _Manual Testing_
-
-In addition to the automated tests, I conducted the following manual tests to verify all user story scenarios:
-
-#### **Authentication - User Logged Out**
-1. The user cannot access the following URLs; they are redirected to the Home page:
-   - Create Post Page
-   - Edit Post Page
-   - Edit Profile Page
-
-2. **Sign In/Sign Up Page**
-   - Desktop users can see an image next to the Sign In/Sign Up form.
-   - Mobile and tablet users cannot see an image next to the Sign In/Sign Up form.
-
-3. **Navigation Bar**
-   - Logged-out users cannot access the following links:
-     - Profile
-     - Sign Out
-
-#### **Post Component - Logged In**
-- Users can create a post.
-- Users can upload an image.
-- Users can change the uploaded image.
-- Users can like a post.
-- Users can leave a comment.
-- Users can edit/delete their own posts.
-
-#### **Profiles - Logged In**
-- Users can view other users' profiles by clicking on their avatars.
-- Users can edit their own profiles.
-- Users can change their username.
-- Users can set a new password.
-
-#### **Following/Unfollowing - Logged In**
-- Users can follow other users.
-- Users can unfollow other users.
-
-### **Further Testing Scenarios**
-- **Error Handling**: Confirm that relevant error messages appear for unsuccessful actions (e.g., issues with post creation or image uploads).
-- **Responsiveness**: Ensure that all components adapt properly and operate smoothly across different screen sizes.
-- **Accessibility**: Validate that the app complies with accessibility guidelines (e.g., keyboard navigation and screen reader support).
-- **Performance**: Assess the loading times of different pages and components, particularly during peak usage.
-
----
-
-You can modify any specific details to better align with the features and functionalities of your AfghanSPere app!
-
-
-### _Responsiveness Testing_
-The responsive design tests were carried out manually throughout the build using [https://ui.dev/amiresponsive]. I based the main design around a desktop view, as this is primarily a browser based platform, although I have added responsive design for tablet and mobile devices as well.
-
-Here are the results:
-
-*  _Desktop View_
-    ![Desktop View](docs/images/hpmepage.PNG)
-
-*  _Tablet View_
-    ![Tablet View](docs/images/tablet.PNG)
-
-*  _Mobile View_
-
-    ![Mobile View](docs/images/phone.PNG)
-
-
-### _Lighthouse Testing_
-Google Lighthouse in Chrome Developer Tools was used to test the application within the areas of Performance, Accessibility, Best Practices and SEO.
-
-![Lighthouse Report](docs/images/ligthouse.PNG)
 
 ## Bugs
 
 ### _Solved Bugs_
 In the Afghanspherere app, users are experiencing an issue where newly created profiles do not appear on the posts page. This is a critical functionality as it affects user engagement and the visibility of content within the community.
+it was, because of page-size in stting.py
 
 ### _UnSolved Bugs_
 No bugs so far.
@@ -350,6 +258,7 @@ No bugs so far.
 * **Jwt-Decode -** Securely implement authentication with JSON Web Tokens.
 * **Pillow -** Adds image processing capabilities to your Python interpreter.
 * **React Notifications -** Library for displaying notifications.
+* **React Testing Library**
 
 ## Deployment
 
@@ -393,19 +302,15 @@ cd frontend
 
 
 
-### Clearfication about Repositories 
-Here you can find the repositories that I created for pp5 to address my progress:
-
-
-
-
 ## Credits
 
 1. The **Code Institute moments** walkthrough project both backend and frontend was a big guide.
 2. The Upload image on the create event, and create post taken from **pngtree.com**
-4. The image for not found page was taken from **Iconduck** site.
-5. In order to find a solution to a problem, I often search on the **Stackoverflow.**
-6. The code for create event button as link was taken from **Where Is The Mouse**, Alexa Hendry helped me to sort it out.
-    component dir > CreateEventForm.js file
-7. The Sign In / Sign up pic created in **My Free Logo Maker** by Sediqa Talbi
-8. The **react-notification** library were used for displaying notifications. 
+3. [React documentation](https://react.dev/reference/react)
+4. [React Router Documentation](https://v5.reactrouter.com/) 
+5. The Upload image is from socil media.
+6. support and asstnace of Roman in salck also students support team specialy Oisin that assist me with patient.
+7. [for mockup design](https://balsamiq.cloud) 
+
+## Note
+While I was running the workspace, I executed the following command at the beginning: nvm install 16 && nvm use 16.
