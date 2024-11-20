@@ -120,7 +120,7 @@ const Post = (props) => {
       </Card.Body>
       <Link to={`/posts/${id}`}>
         {video ? (
-          <video controls className={styles.Video}>
+          <video controls className={styles.Video} style={{ width: '100%', height: 'auto', display: 'block' }}>
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
