@@ -55,7 +55,7 @@ To unify these efforts, I have broken each user story down into a series of deta
 
 An agile development approach was documented and tracked using GitHub issues and projects. Each user story was represented as a GitHub issue, labeled to indicate its necessity for the MVP. A GitHub milestone was established to serve as the product backlog, where all user stories were initially listed.
 
-Development was organized into a series of iterations, each with a timebox of three working days, totaling 17 story points. The actual duration of each iteration varied in calendar days due to the need to accommodate work and other commitments.
+Development was organized into a series of iterations, each with a timebox of three working days. The actual duration of each iteration varied in calendar days due to the need to accommodate work and other commitments.
 
 A GitHub project board was created for each iteration, allowing user stories to be moved from the product backlog into the relevant iteration at the start of each work cycle. User stories were categorized with labels indicating whether they were 'must have', 'could have', or 'should have' for that iteration, along with assigned story point values. Story points for 'must have' user stories were capped at 9 (60%). Some iterations included additional 'tasks' for activities not represented as user stories, such as setup/configuration and design/styling.
 
