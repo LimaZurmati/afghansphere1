@@ -219,6 +219,124 @@ Seeing which users are online including links to the chat page, enabling users t
 * **Sign In Page**
 ![Profile Page](docs/images/signiinmock.PNG)
 
+### Re-use of components
+A number of reusable React components were created with the intention of reducing code duplication.
+
+#### `Avatar.js`
+
+The Avatar component is designed to display user avatars throughout your application, providing a simple interface for rendering an image along with optional text, making it versatile for various use cases.`ProfileForm.js` (allows the user to preview and upload a new profile image). It accepts an src prop, which is a required string that specifies the URL of the avatar image, determining which image will be displayed. The height prop is an optional number that sets both the height and width of the avatar image, defaulting to 45 pixels if not provided. Additionally, the text prop allows you to include any string next to the avatar, such as a username or status message, enhancing the contextual information provided by the avatar.
+
+
+#### `Assets.js`
+
+The `Asset` component is designed to provide a versatile container for displaying an image, a loading spinner, and a message within your application. It allows for a flexible user interface by conditionally rendering its contents based on the provided props. The component accepts the following props: **Spinner (`spinner`)**: A boolean prop that determines whether a loading spinner should be displayed. If set to `true`, a spinner component from `react-bootstrap` is rendered. **Image Source (`src`)**: A string that specifies the URL of the image to be displayed. If provided, the component renders an `<img>` element displaying the specified image. **Message (`message`)**: A string that allows you to display a contextual message below the image, useful for providing additional information or feedback. The component uses a `div` as a wrapper, applying styles from the imported `styles.Asset` CSS module and adding padding with Bootstrap utility classes, ensuring a clean and user-friendly interface.
+
+#### `MoreDropdown.js`
+
+The `MoreDropdown` component provides a customizable dropdown menu that features options for editing and deleting items, while the `ProfileEditDropdown` offers specific actions for editing a user's profile, including changing the username and password. The `ThreeDots` component, created using `React.forwardRef`, serves as the dropdown toggle, displaying three vertical dots (ellipsis) that users can click to reveal the menu. The dropdown utilizes Bootstrap's Dropdown component, with a leftward drop direction, and applies custom styles from the `MoreDropdown.module.css` file. In the `ProfileEditDropdown`, the `useHistory` hook from `react-router` is employed to navigate to specific profile edit routes when the respective dropdown items are clicked. This setup ensures a user-friendly interface for managing profile options while maintaining a clean design.
+
+#### `Navbar.js`
+The `NavBar` component provides a responsive navigation header using React Bootstrap, displaying different options based on the user's authentication status. Logged-in users see links for uploading content, viewing liked posts, and accessing their profile, while logged-out users can sign in or sign up. It integrates user state management and handles logout functionality with an API call, ensuring a seamless navigation experience.
+
+
+#### `Hnadlers.js`
+1. **GET User Handler**: It simulates a GET request to fetch user details, returning a mock user object with fields like `username` and `profile_image`.
+
+2. **POST Logout Handler**: It simulates a POST request for logging out, returning a 200 status to indicate a successful logout. 
+
+These handlers allow testing without a real backend.
+
+#### `Comment.js`
+The `Comment` component displays an individual comment within a post, using React and Bootstrap for styling. 
+
+1. It shows the commenter's avatar, username, and the date the comment was last updated.
+2. If the current user is the owner of the comment, they can edit or delete it using a dropdown menu.
+3. The component includes functionality to delete the comment and update the post's comment count, or show an edit form when editing is initiated.
+
+Overall, it provides a user-friendly interface for interacting with comments.
+
+#### `CommentCreateForm.js`
+The `CommentCreateForm` component allows users to submit new comments on a post. 
+
+1. It includes an input field where users can type their comment, along with an avatar linking to the user's profile.
+2. On form submission, it sends the comment data to the backend and updates the list of comments and the comment count for the post.
+3. The submit button is disabled until the user types a comment, ensuring that empty submissions are not allowed.
+
+#### `CommentEditForm.js`
+The `CommentEditForm` component enables users to edit their existing comments.
+
+1. It initializes the comment content in a textarea, allowing users to modify it.
+2. On submission, it sends the updated content to the backend and updates the comment in the local state, reflecting the new content.
+3. Users can cancel the edit and return to the previous view, and the save button is disabled until there is valid content.
+
+#### `Post.js`
+The `Post` component displays an individual post, including user interactions like liking, commenting, and sharing.
+
+1. **Post Details**: It shows the post owner's avatar, name, date updated, title, content, and either an image or video.
+
+2. **User Actions**:
+   - **Edit/Delete**: The owner can edit or delete their post.
+   - **Like/Unlike**: Users can like or unlike the post, with a tooltip for attempts to like their own post.
+   - **Comment Count**: Displays the number of comments on the post.
+
+3. **Sharing Options**: Users can share the post via a link, Facebook, or Gmail, with a toggle for the share menu.
+
+#### `PostPage.js`
+The `PostPage` component displays a single post along with its comments and a comment creation form.
+
+1. **Data Fetching**: It uses `useEffect` to fetch the post and its comments from the API when the component mounts, storing them in local state.
+
+2. **Post Display**: If the post is found, it renders the `Post` component with the post details.
+
+3. **Comment Creation**: If a user is logged in, it shows the `CommentCreateForm` to allow commenting. If there are comments, it displays them; otherwise, it prompts the user to be the first to comment.
+
+4. **Infinite Scrolling**: It implements infinite scrolling for comments, loading more as the user scrolls down.
+
+5. **Sidebar**: A sidebar with popular profiles is displayed on larger screens.
+
+#### `PostEditForm.js`
+The `PostEditForm` component lets users edit an existing post. 
+
+- **Fetches Post Data**: It retrieves the current post details and checks if the user is the owner.
+- **Input Fields**: Users can update the title, content, and upload a new image or video.
+- **Error Display**: Shows validation errors if there are any issues with the input.
+- **Form Submission**: Sends the updated data to the server when the user saves their changes.
+- **Responsive Design**: Adapts to both mobile and desktop screens.
+
+#### `PopularProfiles.js`
+The `PopularProfiles` component displays a list of popular user profiles.
+
+- **Data Retrieval**: It uses context to get the popular profiles.
+- **Conditional Rendering**:
+  - If profiles exist, it shows a header and lists them. For mobile views, it displays up to four profiles in a row.
+  - If no profiles are available, it shows a loading spinner.
+- **Responsive Design**: Adjusts layout based on whether it’s viewed on mobile or larger screens.
+
+#### `Profiles.js`
+The `Profile` component displays a user profile card.
+
+- **Profile Information**: Shows the user's avatar and username, linking to their profile page.
+- **Follow/Unfollow Button**: 
+  - If the current user is not the profile owner, it displays a follow or unfollow button based on whether the current user is already following them.
+- **Responsive Design**: Adjusts layout for mobile views, stacking elements vertically.
+
+#### `ProfilePage.js`
+The `ProfilePage` component shows a user’s profile and their posts.
+
+- **Data Fetching**: It retrieves the user's profile and posts when the page loads.
+- **Profile Details**: Displays the user's picture, name, bio, and links to GitHub and LinkedIn. It also shows follower and following counts, with a follow/unfollow button.
+- **Editing**: If the current user owns the profile, they can edit it.
+- **Posts Section**: Uses infinite scrolling to load posts as you scroll. If there are no posts, it displays a message.
+- **Responsive Design**: Adjusts to look good on both mobile and desktop screens.
+
+
+
+
+
+
+
+
+
 
 ## Testing  Part [testing.md](/testing.md) 
 
