@@ -1,6 +1,6 @@
 <h1 align="center">Afghanspere</h1> 
 
- The Afghansphere project aims to be a vibrant platform that not only showcases Afghanistan's natural beauty and historical significance but also serves as a community-driven space for sharing personal experiences and cultural pride. By engaging both locals and visitors, the project can promote a deeper understanding and appreciation of Afghanistan's unique heritage. [Deployed Link](https://afghansphere-4d07ea9a1a6f.herokuapp.com/)
+ The Afghansphere project aims to be a vibrant platform that not only showcases Afghanistan's natural beauty and historical significance but also serves as a community-driven space for sharing personal experiences and cultural pride. By engaging both locals and visitors, the project can promote a deeper understanding and appreciation of Afghanistan's unique heritage. [Deployed Link](https://afghansphre-dd7d48b6aeda.herokuapp.com/)
 
   <!-- I AM Responsive image -->
   ![Afghansphere](docs/images/res.png)
@@ -331,13 +331,6 @@ The `ProfilePage` component shows a user’s profile and their posts.
 
 
 
-
-
-
-
-
-
-
 ## Testing  Part [testing.md](/testing.md) 
 
 
@@ -380,7 +373,38 @@ No bugs so far.
 
 ## Deployment
 
+The site is deployed using GitHub Pages - [afghansphere1](https://github.com/LimaZurmati/afghansphere1/).
 
+### Deploying the Site with GitHub Pages:
+
+1. Log in (or create an account) on GitHub.
+2. Navigate to the repository for this project, [afghansphere1](https://github.com/LimaZurmati/afghansphere1/).
+3. Click on the settings button.
+4. In the left-hand menu, select "Pages."
+5. From the source dropdown, choose the main branch and click save.
+6. The site is now deployed; please note that it may take a few minutes for the site to go live.
+
+### Local Development
+
+#### How to Fork
+
+To fork the repository:
+
+1. Log in (or create an account) on GitHub.
+2. Go to the repository for this project, [afghansphere](https://github.com/LimaZurmati/afghansphere1/).
+3. Click the Fork button located in the top right corner.
+
+#### How to Clone
+
+To clone the repository:
+
+1. Log in (or create an account) on GitHub.
+2. Navigate to the repository for this project, [afghansphere](https://github.com/LimaZurmati/afghansphere1/).
+3. Click on the code button, choose whether to clone using HTTPS, SSH, or GitHub CLI, and copy the displayed link.
+4. Open the terminal in your code editor and change the current working directory to where you want the cloned directory to be.
+5. Type 'git clone' followed by the link you copied in step 3 and press enter.
+
+- - -
 
 ### Steps Before Beployment 
 
@@ -431,4 +455,5 @@ cd frontend
 7. [for mockup design](https://balsamiq.cloud) 
 
 ## Note
-While I was running the workspace, I executed the following command at the beginning: nvm install 16 && nvm use 16.
+- While I was running the workspace, I executed the following command at the beginning: nvm install 16 && nvm use 16. 
+- I just created the notifiction model for future features, it was not in my mock design for this term.
